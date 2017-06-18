@@ -12,8 +12,16 @@ RUN apt-get update \
  
 RUN mkdir /etc/nginx/certificates
 
-#  default conf for proxy service
-COPY default.conf /etc/nginx/conf.d/default.conf
+
+# Remove the default Nginx configuration file
+RUN rm -v /etc/nginx/nginx.conf
+
+# Copy a configuration file from the current directory
+COPY nginx.conf /etc/nginx/nginx.conf
+
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+RUN cat /etc/nginx/nginx.conf
 
 # Volumes
 VOLUME ["/etc/nginx/certs"]
@@ -21,4 +29,4 @@ VOLUME ["/etc/nginx/sites-enabled"]
 
 # Port to expose
 EXPOSE 80 443 
-CMD ["nginx"]
+CMD service nginx start

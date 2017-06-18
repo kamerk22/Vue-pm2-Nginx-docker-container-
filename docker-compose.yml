@@ -2,5 +2,7 @@ version: '2'
 services:
   nginx:
           build: nginx
+          container_name: Nginx
           ports:
-              - 80:80
+              - "80:80"
+          tty: true 
