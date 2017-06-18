@@ -21,4 +21,4 @@ VOLUME ["/etc/nginx/sites-enabled"]
 
 # Port to expose
 EXPOSE 80 443 
-CMD ["nginx", "-g", "demon off;"]
+CMD ["nginx"]
