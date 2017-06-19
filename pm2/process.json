@@ -1,0 +1,29 @@
+{
+  "apps" : [{
+    "merge_logs"  : true,
+    "name"        : "worker1",
+    "out_file"    : "/tmp/workers.log",
+    "log_date_format" : "MM/DD/YYYY HH:mm:ss",
+    "script"      : "lib/worker.js"
+  },{
+    "merge_logs"  : true,
+    "name"        : "worker2",
+    "out_file"    : "/tmp/workers.log",
+    "log_date_format" : "MM/DD/YYYY HH:mm:ss",
+    "script"      : "lib/worker.js"
+  },{
+    "merge_logs"  : true,
+    "name"        : "server",
+    "script"      : "lib/server.js",
+    "out_file"    : "/tmp/servers.log",
+    "log_date_format" : "MM/DD/YYYY HH:mm:ss"
+  },{
+    "merge_logs"  : true,
+    "name"        : "pm2-notifier",
+    "out_file"    : "/tmp/pm2-notifier.log",
+    "script"      : "lib/pm2-notifier.js",
+    "env": {
+      "EC2": "ENV_CTXT"
+    }
+  }]
+}

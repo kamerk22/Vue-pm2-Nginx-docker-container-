@@ -9,8 +9,9 @@ RUN apt-get update \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
  
-RUN mkdir /etc/nginx/certificates
+ENTRYPOINT ["/docker-entrypoint.sh"]  
 
+RUN mkdir /etc/nginx/certificates
 RUN rm -v /etc/nginx/nginx.conf
 
 COPY nginx.conf /etc/nginx/nginx.conf

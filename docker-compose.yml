@@ -5,9 +5,23 @@ services:
           container_name: Nginx
           ports:
               - "80:80"
-          tty: true 
+              - "443:443"
+          tty: true
+          links:
+              - "pm2: pm2"
+          volumes:
+              - /etc/nginx/certs
+              - /etc/nginx/sites-enabled
+          environment:
+              - DOMAIN_NAME=mynodeapp.com
           
   pm2: 
         build: pm2
         container_name: PM2
+        ports:
+              - "5000"
+        volumes:
+              - /tmp:/tmp
+        environment:
+              - MODE=prod
         
