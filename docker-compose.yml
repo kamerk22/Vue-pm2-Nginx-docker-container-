@@ -6,3 +6,8 @@ services:
           ports:
               - "80:80"
           tty: true 
+          
+  pm2: 
+        build: pm2
+        container_name: PM2
+        
