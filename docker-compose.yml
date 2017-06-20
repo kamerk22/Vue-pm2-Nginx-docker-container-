@@ -1,15 +1,5 @@
 version: '2'
 services:
-  pm2: 
-          build: pm2
-          container_name: PM2
-          ports:
-              - "5000"
-          volumes:
-              - /tmp:/tmp
-          environment:
-              - MODE=prod
-        
   nginx:
           build: nginx
           container_name: Nginx
@@ -24,3 +14,16 @@ services:
               - /etc/nginx/sites-enabled
           environment:
               - DOMAIN_NAME=mynodeapp.com
+          depends_on:
+              - "pm2"
+          
+  pm2: 
+        build: pm2
+        container_name: PM2
+        ports:
+              - "5000"
+        volumes:
+              - /tmp:/tmp
+        environment:
+              - MODE=prod
+        
