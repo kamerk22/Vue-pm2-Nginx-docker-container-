@@ -25,7 +25,7 @@
     },
     {
       "name": "mynodeapp",
-      "script": "./app/app.js",
+      "script": "/app/app.js",
       "merge_logs": true,
       "max_restarts": 20,
       "instances": 4,

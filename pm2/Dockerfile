@@ -9,6 +9,7 @@ EXPOSE 80 443 43554
 
 WORKDIR /app
 
+RUN rm -rf /app/*
 ADD app/ /app
 
 RUN pwd

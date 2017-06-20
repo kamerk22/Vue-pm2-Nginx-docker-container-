@@ -23,7 +23,7 @@ services:
         ports:
               - "5000"
         volumes:
-              - /tmp:/tmp
+              - ./pm2/app/:/app
         environment:
               - MODE=prod
         
